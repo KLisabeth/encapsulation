@@ -1,24 +1,25 @@
-const codeAlongGuide = `evaluate code: will run the code in the current editor ---
+const codeAlongGuide = {
+  "evaluate code": `will run the code in the current editor ---
     ... capture asserts to display pass/fail
     ... try to stop your code after 1000+ loop iterations
     ... generate a search link for your errors
     ... indicate if errors were Creation or Execution phase
-    ... remove all debugger statements
-step through in debugger: will run the current editor ---
-    ... insert a debugger statement before the first line
-with infinite loop guard: will run the current editor ---
+    ... remove all debugger statements`,
+  "step through in debugger": `will run the current editor ---
+    ... insert a debugger statement before the first line`,
+  "with infinite loop guard": `will run the current editor ---
     ... like above, but will format your code
-    ... try to insert an infinite loop guard at every loop
-Open In Js Tutor: will open the current code in JS Tutor ---
-    ... use this button ALL THE TIME!
-Open In JSHint: opens your code in an online Linter that will ---
+    ... try to insert an infinite loop guard at every loop`,
+  "Open In Js Tutor": `will open the current code in JS Tutor ---
+    ... use this button ALL THE TIME!`,
+  "Open In JSHint": `opens your code in an online Linter that will ---
     ... point out syntax errors
     ... warn about some bad practices
     ... warn about possible runtime errors
-    ... evaluate the complexity of your code
-Format Code: will make code in the current editor prettier ---
-    ... makes your code easier to read
-`;
+    ... evaluate the complexity of your code`,
+  "Format Code": `will make code in the current editor prettier ---
+    ... makes your code easier to read`
+};
 
 // - your code will be colored for easy reading
 // - ctr-z will undo changes you made
@@ -683,21 +684,37 @@ codeAlong.js = (iframe, steps, config) => {
 }
 
 // binding evaluation function to window for arrow function correctness
+//   ! annoyingly (but correctly) globals hoisted variables
+//   much simpler callstack in the debugger
+//   and still does arrows correctly
 codeAlong.step_through_in_debugger = (function in_debugger(your_source_code) {
-  try {
-    const executing_your_code = () => {
-      eval(
-        'debugger; // injected by codeAlong\n'
-        + '\n'
-        + your_source_code
-      );
-    };
-    executing_your_code();
-  } catch (err) {
-    console.log(err);
-  };
+  const executing_your_code = eval;
+  // try {
+  executing_your_code(
+    'debugger; // injected by codeAlong\n'
+    + '\n'
+    + your_source_code
+  );
+  // } catch (err) {
+  //   console.log(err);
+  // };
   return "    All done! \n\n    (psst. try again with devtools open if they aren't already)";
 }).bind(window);
+// codeAlong.step_through_in_debugger = (function in_debugger(your_source_code) {
+//   try {
+//     const executing_your_code = () => {
+//       eval(
+//         'debugger; // injected by codeAlong\n'
+//         + '\n'
+//         + your_source_code
+//       );
+//     };
+//     executing_your_code();
+//   } catch (err) {
+//     console.log(err);
+//   };
+//   return "    All done! \n\n    (psst. try again with devtools open if they aren't already)";
+// }).bind(window);
 
 codeAlong.format_and_loop_guard = (function with_infinite_loop_guard(your_source_code, max_iterations) {
   let number_of_loops = 0;
@@ -708,7 +725,7 @@ codeAlong.format_and_loop_guard = (function with_infinite_loop_guard(your_source
       + js_beautify(
         your_source_code.replace(/for *\(.*\{|while *\(.*\{|do *\{/g, loopHead => {
           number_of_loops++;
-          return `let loop_${number_of_loops}_iterations = 0; // injected by codeAlong\n ${loopHead}\n if (++loop_${number_of_loops}_iterations > ${max_iterations}) {console.log('Loop ${number_of_loops} exceeded ${max_iterations} iterations'); break;} // injected by codeAlong\n`
+          return `let loop_${number_of_loops}_iterations = 0; // injected by codeAlong\n ${loopHead}\n if (++loop_${number_of_loops}_iterations > ${max_iterations}) {throw 'Loop ${number_of_loops} exceeded ${max_iterations} iterations';} // injected by codeAlong\n`
         }),
         {
           indent_size: '  ',
@@ -731,7 +748,7 @@ codeAlong.with_infinite_loop_guard = (function with_infinite_loop_guard(your_sou
       +
       your_source_code.replace(/for *\(.*\{|while *\(.*\{|do *\{/g, loopHead => {
         number_of_loops++;
-        return `let loop_${number_of_loops}_iterations = 0; // injected by codeAlong\n ${loopHead}\n if (++loop_${number_of_loops}_iterations > ${max_iterations}) {console.log('Loop ${number_of_loops} exceeded ${max_iterations} iterations'); break;} // injected by codeAlong\n`
+        return `let loop_${number_of_loops}_iterations = 0; // injected by codeAlong\n ${loopHead}\n if (++loop_${number_of_loops}_iterations > ${max_iterations}) {throw 'Loop ${number_of_loops} exceeded ${max_iterations} iterations';} // injected by codeAlong\n`
       })
     );
   } catch (err) {

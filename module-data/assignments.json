@@ -6,6 +6,13 @@
       "endpoints": [
         "development-strategy.md"
       ]
+    },
+    {
+      "name": "booklist-app",
+      "live": true,
+      "endpoints": [
+        "development-strategy.md"
+      ]
     }
   ],
   "exercises": [
@@ -28,8 +35,8 @@
       ]
     },
     {
-      "name": "JavaScript 30, 6 of your choice",
-      "live": "https//javascript30.com/"
+      "name": "JavaScript 30 group challenges",
+      "source": "https://github.com/<user-name>/javascript-30"
     }
   ]
 }

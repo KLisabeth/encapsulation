@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <title>Event handlers</title>
+  <script id='app'>
+    const todoList = {
+      _todos: [
+        'Do laundry',
+      ],
+      _container: null,
+      addTodo(text) {
+        if (text.length === 0) {
+          return;
+        }
+        
+        this._todos.push(text);
+        this.renderTodos();
+      },
+      renderTodos() {
+        this._container.innerHTML = '';
+        this._todos.forEach(todo => {
+          const li = document.createElement('li');
+          li.textContent = todo;
+          this._container.appendChild(li);
+        })
+      },
+      init(container) {
+        this._container = container;
+        this.renderTodos();
+      }
+    }
+  </script>
+  <script id='init'>
+    window.onload = function () {
+      todoList.init(document.getElementById('todos'));
+    }
+  </script>
+</head>
+
+<body>
+<section id='user-interface'>
+  <form id="add-todo">
+    <input id="text" name="text" placeholder="Add a todo" type="text" />
+    <button type="submit">Add todo</button>
+  </form>
+  <ul id="todos"></ul>
+</section>
+
+<script id='interactions'>
+  document.getElementById('add-todo').addEventListener('submit', event => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    
+    todoList.addTodo(formData.get('text'));
+  })
+</script>
+</body>
+
+</html>

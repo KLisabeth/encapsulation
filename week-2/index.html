@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <title>Encapsulation: Week 1</title>
+  <title>Encapsulation: Week 2</title>
 
   <script src='../embed-scripts/code-along.js'></script>
 
@@ -21,7 +21,6 @@
   <!-- <script src="./prettier/parser-babylon.js"></script> -->
   <script src="https://unpkg.com/prettier@1.13.0/parser-babylon.js"></script>
   <!-- <script src="../embed-scripts/beautify.js"></script> -->
-
 
   <style>
     /* https://stackoverflow.com/questions/25479420/how-to-add-a-fixed-footer-on-all-slides */
@@ -62,12 +61,12 @@
       <section id='cover-slide'>
         <h2>Encapsulation</h2>
         <br>
-        <h3>Week 1</h3>
+        <h3>Week 2</h3>
         <br>
         <code>"s"</code> for speaker notes
         <br>
         <br>
-        <a href="https://github.com/hackyourfuturebelgium/encapsulation/tree/master/week-1" target='_blank'>
+        <a href="https://github.com/hackyourfuturebelgium/encapsulation/tree/master/week-2" target='_blank'>
           -- back to repo --
         </a>
       </section>
@@ -83,32 +82,63 @@
           </p>
         </section>
         <section>
-          <h3><code>this</code></h3>
+          <h3>Binding</h3>
           <br>
           <ul>
-            <li>Object methods</li>
+            <li><code>this</code></li>
+            <li>arguments</li>
           </ul>
         </section>
         <section>
           <h3>Project Organization</h3>
           <br>
           <ul>
-            <li><code>/app</code></li>
-            <li><code>/interactions</code></li>
-            <li><code>/views</code></li>
+            <li>binding handler methods</li>
           </ul>
         </section>
       </section>
 
 
       <section id='review'>
-        <h1>Review</h1>
-        <br>
-        <br>
-        <p>Any <code>sunday-review</code> issues?</p>
-        <p>Any other Questions?</p>
-        <br>
-        <code>(~30 min)</code>
+        <section>
+          <h1>Review</h1>
+          <br>
+          <br>
+          <p>Any <code>sunday-review</code> issues?</p>
+          <p>Any other Questions?</p>
+          <br>
+          <code>(~30 min)</code>
+        </section>
+        <section id="review-examples-object">
+          <script>
+            codeAlong({
+              title: 'Method Re-use',
+              container: 'review-examples-object',
+              type: 'js',
+              source: [
+                {
+                  name: 'Method re-use',
+                  path: '../javascripting/object-method-examples/7-method-reuse.js',
+                },
+              ]
+            })
+          </script>
+        </section>
+        <section id="review-examples-todolist">
+          <script>
+            codeAlong({
+              title: 'Objects and event handlers',
+              container: 'review-examples-todolist',
+              type: 'document',
+              source: [
+                {
+                  name: 'Event handlers',
+                  path: '../javascripting/object-method-examples/8-event-handlers.html',
+                }
+              ]
+            })
+          </script>
+        </section>
       </section>
 
       <section id='what-you-will-build'>
@@ -116,12 +146,12 @@
           <h1>What You'll Build</h1>
           <br>
           <p>A lot like last week, <br>
-            but with an Object at the core</p>
+            but with handler methods</p>
         </section>
         <section>
-          <h3>Incrementor</h3>
+          <h3>Bound Incrementor</h3>
           <iframe style='background-color:white; height: 75vh; width: 100%;'
-            src='../example-projects/incrementor-separated/index.html'></iframe>
+            src='../example-projects/bound-incrementor-separated/index.html'></iframe>
         </section>
       </section>
 
@@ -130,128 +160,69 @@
         <h1>New Material</h1>
       </section>
 
-      <section id='this'>
+      <section id='binding-this'>
         <section>
-          <h2><code>this</code>: Object Methods</h2>
-          <br>
-          <p>encapsulating functions & data in an object</p>
+          <h2>Binding <code>this</code></h2>
           <br>
           <code>(pair programming)</code>
         </section>
-        <section>
-          <h3>Helpful Links</h3>
-          <br>
-          <ul>
-            <li><a href='https://javascript.info/object-methods' target='_blank'>
-                javascript.info</a></li>
-            <li><a
-                href='https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/object-oriented-programming/create-a-method-on-an-object'
-                target='_blank'>
-                FCC: create a method on an object</a></li>
-            <li><a
-                href='https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/object-oriented-programming/make-code-more-reusable-with-the-this-keyword'
-                target='_blank'>
-                FCC: reusable code with <code>this</code></a></li>
-            <li><a href='https://stackoverflow.com/questions/17486854/how-to-create-a-method-in-object-literal-notation'
-                target='_blank'>
-                StackOverflow</a></li>
-          </ul>
-        </section>
-        <section id='method-examples'>
+        <section id='binding-this-examples'>
           <script>
             codeAlong({
-              title: 'Object Methods: Examples',
-              container: 'method-examples',
+              title: 'Binding this: Examples',
+              container: 'binding-this-examples',
               type: 'js',
               source: [
                 {
-                  name: 'Sum',
-                  path: '../javascripting/object-method-examples/1-sum.js',
+                  name: 'This is Dynamic',
+                  path: '../javascripting/binding-this-examples/1-this-is-dynamic.js',
                 },
                 {
-                  name: 'Name Tag',
-                  path: '../javascripting/object-method-examples/2-name-tag.js',
+                  name: 'a new function',
+                  path: '../javascripting/binding-this-examples/2-binding-creates-a-new-function.js',
                 },
                 {
-                  name: 'Types',
-                  path: '../javascripting/object-method-examples/3-types.js',
+                  name: 'this is permanent',
+                  path: '../javascripting/binding-this-examples/3-binding-makes-this-permanent.js',
                 },
                 {
-                  name: 'Big/Small',
-                  path: '../javascripting/object-method-examples/4-big-small.js',
+                  name: 'removing methods',
+                  path: '../javascripting/binding-this-examples/4-removing-methods-from-objects.js',
                 },
                 {
-                  name: 'Entries',
-                  path: '../javascripting/object-method-examples/5-entries.js',
+                  name: 'bound properties',
+                  path: '../javascripting/binding-this-examples/5-accessing-bound-properties.js',
                 },
                 {
-                  name: 'Searchable',
-                  path: '../javascripting/object-method-examples/6-searchable.js',
+                  name: 'all together',
+                  path: '../javascripting/binding-this-examples/6-counter-object.js',
                 },
               ]
             })
           </script>
         </section>
-        <section id='read-from'>
+        <section id='binding-this-exercises'>
           <script>
             codeAlong({
-              title: 'Exercises: read from object',
-              container: 'read-from',
+              title: 'Binding this: Exercises',
+              container: 'binding-this-exercises',
               type: 'js',
               source: [
                 {
-                  name: 'Exercise 1',
-                  path: '../javascripting/object-method-exercises/read-from-1.js',
+                  name: 'challenge 1',
+                  path: '../javascripting/binding-this-exercises/challenge-1.js',
                 },
                 {
-                  name: 'Exercise 2',
-                  path: '../javascripting/object-method-exercises/read-from-2.js',
+                  name: 'challenge 2',
+                  path: '../javascripting/binding-this-exercises/challenge-2.js',
                 },
                 {
-                  name: 'Exercise 3',
-                  path: '../javascripting/object-method-exercises/read-from-3.js',
-                },
-              ]
-            })
-          </script>
-        </section>
-        <section id='write-to'>
-          <script>
-            codeAlong({
-              title: 'Exercises: write to object',
-              container: 'write-to',
-              type: 'js',
-              source: [
-                {
-                  name: 'Exercise 1',
-                  path: '../javascripting/object-method-exercises/write-to-1.js',
+                  name: 'challenge 3',
+                  path: '../javascripting/binding-this-exercises/challenge-3.js',
                 },
                 {
-                  name: 'Exercise 2',
-                  path: '../javascripting/object-method-exercises/write-to-2.js',
-                },
-                {
-                  name: 'Exercise 3',
-                  path: '../javascripting/object-method-exercises/write-to-3.js',
-                },
-              ]
-            })
-          </script>
-        </section>
-        <section id='both'>
-          <script>
-            codeAlong({
-              title: 'Exercises: challenges',
-              container: 'both',
-              type: 'js',
-              source: [
-                {
-                  name: 'Challenge 1',
-                  path: '../javascripting/object-method-exercises/challenge-1.js',
-                },
-                {
-                  name: 'Challenge 2',
-                  path: '../javascripting/object-method-exercises/challenge-2.js',
+                  name: 'challenge 4',
+                  path: '../javascripting/binding-this-exercises/challenge-4.js',
                 },
               ]
             })
@@ -259,60 +230,115 @@
         </section>
       </section>
 
+      <section id='binding-this'>
+        <section>
+          <h2>Binding arguments</h2>
+          <br>
+          <code>(pair programming)</code>
+        </section>
+        <section id='binding-arguments-examples'>
+          <script>
+            codeAlong({
+              title: 'Binding arguments: Examples',
+              container: 'binding-arguments-examples',
+              type: 'js',
+              source: [
+                {
+                  name: 'saving for later',
+                  path: '../javascripting/binding-arguments-examples/1-save-arguments-for-later.js',
+                },
+                {
+                  name: 'partial application',
+                  path: '../javascripting/binding-arguments-examples/2-partial-application.js',
+                },
+                {
+                  name: 'even and odd',
+                  path: '../javascripting/binding-arguments-examples/3-even-and-odd.js',
+                },
+              ]
+            })
+          </script>
+        </section>
+        <section id='binding-arguments-exercises'>
+          <script>
+            codeAlong({
+              title: 'Binding arguments: Exercises',
+              container: 'binding-arguments-exercises',
+              type: 'js',
+              source: [
+                {
+                  name: 'challenge 1',
+                  path: '../javascripting/binding-arguments-exercises/challenge-1.js',
+                },
+                {
+                  name: 'challenge 2',
+                  path: '../javascripting/binding-arguments-exercises/challenge-2.js',
+                },
+                {
+                  name: 'challenge 3',
+                  path: '../javascripting/binding-arguments-exercises/challenge-3.js',
+                },
+              ]
+            })
+          </script>
+        </section>
+      </section>
 
       <section id='break'>
         <h1>Break!</h1>
         <br>
         <code>(~20 min)</code>
       </section>
+
       <section id='example-projects'>
         <section>
           <h2>Example Projects</h2>
           <br>
           <p>finished code for inspiration</p>
         </section>
-        <section id='incrementor-stepped'>
+        <section id='bound-incrementor-stepped'>
           <script>
             codeAlong({
-              title: 'Incrementor: stepped',
-              container: 'incrementor-stepped',
+              title: 'Bound Incrementor: stepped',
+              container: 'bound-incrementor-stepped',
               type: 'document',
               source: [
                 {
                   name: '0. Setup',
-                  path: '../example-projects/incrementor-stepped/0-setup.html'
+                  path: '../example-projects/bound-incrementor-stepped/0-setup.html'
                 },
                 {
                   name: '1. Data & Log',
-                  path: '../example-projects/incrementor-stepped/1-data-and-log.html'
+                  path: '../example-projects/bound-incrementor-stepped/1-data-and-log.html'
                 },
                 {
                   name: '2. Initialize',
-                  path: '../example-projects/incrementor-stepped/2-initialize.html'
+                  path: '../example-projects/bound-incrementor-stepped/2-initialize.html'
                 },
                 {
                   name: '3. Story: Increment',
-                  path: '../example-projects/incrementor-stepped/3-story-increment.html'
+                  path: '../example-projects/bound-incrementor-stepped/3-story-increment.html'
                 },
                 {
                   name: '4. Story: Set Step',
-                  path: '../example-projects/incrementor-stepped/4-story-set-step.html'
+                  path: '../example-projects/bound-incrementor-stepped/4-story-set-step.html'
                 },
                 {
                   name: '5. Story: Reset',
-                  path: '../example-projects/incrementor-stepped/5-story-reset.html'
+                  path: '../example-projects/bound-incrementor-stepped/5-story-reset.html'
                 },
               ]
             })
           </script>
         </section>
         <section>
-          <h2>Incrementor: Separated</h2>
+          <h2>Bound Incrementor: Separated</h2>
           <br>
           <ul>
-            <li><a href='../example-projects/incrementor-separated/index.html' target='_blank'>live project</a></li>
+            <li><a href='../example-projects/bound-incrementor-separated/index.html' target='_blank'>live project</a>
+            </li>
             <li><a
-                href='https://github.com/hackyourfuturebelgium/encapsulation/tree/master/example-projects/incrementor-separated'
+                href='https://github.com/hackyourfuturebelgium/encapsulation/tree/master/example-projects/bound-incrementor-separated/'
                 target='_blank'>source code</a></li>
           </ul>
         </section>
@@ -322,16 +348,18 @@
         <section id='in-class-cover'>
           <h2>In-Class Project</h2>
           <br>
-          <p>Build a small project using Objects & Methods</p>
+          <p>Build a small project with Binding Handlers</p>
           <br>
           <code>(pair programming)</code>
         </section>
         <section>
-          <h2>
-            <a href='https://github.com/HackYourFutureBelgium/even-or-odd-object' target='_blank'>
-              <code>even-or-odd-object</code> Starter Repo
+          <h2>Entries: Binding Handlers</h2>
+          <br>
+          <p>
+            <a href='https://github.com/HackYourFutureBelgium/entries-binding-handlers' target='_blank'>
+              Starter Repository Link
             </a>
-          </h2>
+          </p>
         </section>
       </section>
 
@@ -342,7 +370,7 @@
           <p>It's only just beginning :)</p>
         </section>
         <section>
-          <h2><a href='https://github.com/hackyourfuturebelgium/encapsulation/tree/master/week-1' target='_blank'>
+          <h2><a href='https://github.com/hackyourfuturebelgium/encapsulation/tree/master/week-2' target='_blank'>
               The Assignments</a></h2>
         </section>
         <section>
@@ -359,7 +387,7 @@
             <li><a
                 href='https://help.github.com/en/github/managing-your-work-on-github/applying-labels-to-issues-and-pull-requests'
                 target='_blank'>
-                Label</a>, it <code>week-1</code> and <code>homework</code></li>
+                Label</a>, it <code>week-2</code> and <code>homework</code></li>
             <li><a href='https://help.github.com/en/github/managing-your-work-on-github/about-milestones'
                 target='_blank'>
                 Milestone</a> it <code>incremental-development</code></li>
@@ -372,14 +400,14 @@
       <section id='cover-slide'>
         <h3>Encapsulation</h3>
         <br>
-        <h2>Week 1</h2>
+        <h2>Week 2</h2>
         <br>
         <p>
           "<code>s</code>" for speaker notes
           <!-- <br>
           "<code>b</code>" for chalkboard -->
         </p>
-        <a href="https://github.com/hackyourfuturebelgium/encapsulation/tree/master/week-1" target='_blank'>
+        <a href="https://github.com/hackyourfuturebelgium/encapsulation/tree/master/week-2" target='_blank'>
           -- back to repo --
         </a>
       </section>

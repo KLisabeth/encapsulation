@@ -14,6 +14,7 @@
 * [Module Summary](#module-summary)
 * [Learning Objectives](#learning-objectives)
 * [Example Projects](./example-projects)
+* [In-Class Exercises](./javascripting/REVIEW.md)
 * [Week 1](./week-1)
   * [Prep Work](./week-1#prep-work)
   * [Lesson Plan](https://hackyourfuture.be/encapsulation/week-1)
