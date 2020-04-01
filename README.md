@@ -21,6 +21,7 @@
   * [Assignments](./week-1#assignments)
 * Week 2
 * Week 3
+* [Class Recordings](./class-recordings.md)
 * [Study Links](https://study.hackyourfuture.be) (external)
 * [Homework Submission](https://github.com/hackyourfuturebelgium/homework-submission) (external)
 

@@ -35,6 +35,21 @@
       ]
     },
     {
+      "name": "es6-classes",
+      "live": false,
+      "endpoints": [
+        "literals-to-classes/REVIEW.md"
+      ]
+    },
+    {
+      "name": "binding-handlers",
+      "live": true,
+      "endpoints": [
+        "fill-in-the-blanks",
+        "fix-the-mistakes"
+      ]
+    },
+    {
       "name": "JavaScript 30 group challenges",
       "source": "https://github.com/<user-name>/javascript-30"
     }

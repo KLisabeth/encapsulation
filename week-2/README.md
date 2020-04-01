@@ -54,11 +54,11 @@ Starting with the exercises will make it easier to complete the project.  Spendi
 
 Solve each exercise on a separate branch and merge to master when they are complete.  Be sure to run `$ node review.js` before pushing to make it easier for your coaches to review your work.
 
-* [binding-handlers](https://github.com/hackyourfuturebelgium/binding-handlers)
 * [es6-classes](https://github.com/hackyourfuturebelgium/es6-classes)
 
 #### Integrating JavaScript
 
+* [binding-handlers](https://github.com/hackyourfuturebelgium/binding-handlers)
 * Form a group of 2-3 and Complete 1 [JavaScript 30](https://github.com/hackyourfuturebelgium/javascript-30) group challenge, your choice!
   * Link to your team's main repository in your homework issue
 
